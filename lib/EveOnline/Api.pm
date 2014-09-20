@@ -21,11 +21,11 @@ EveOnline::Api - the Perl version of the Eve Online API system.
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 has 'apiroot'   =>  (
     is      =>  'rw',
@@ -53,13 +53,15 @@ has 'vcode' =>  (
 =head1 DESCRIPTION
 
 The module allows to programatically access to the Eve Online Game API system. Currently, there are several methods available for
-information retieval and tis module only cover a few o them. 
+information retieval and this module only cover a few o them. 
 
 =head1 SUBROUTINES/METHODS
 
 =head2 get_character_list
 
-Returns the complete character list of a given account.
+Access the complete character list of a given account. Returns a list of Character objects.
+	
+	my @list = $eve->get_characer_list();
 
 =cut
 
@@ -101,7 +103,9 @@ sub get_character_list {
 
 =head2 get_char_info_list
 
-Returns the descritive infomation from a character.
+Access the descritive information from a character. Returns a list of CharacterInfo objects.
+
+	my @list = $eve->get_char_info_list();
 
 =cut
 
@@ -152,7 +156,9 @@ sub get_char_info_list {
 
 =head2 get_account_status
 
-Returns the status of the account.
+Access the status of the account. Returns an AccountStatus object.
+	
+	my $obj = $eve->get_account_status();
 
 =cut
 
@@ -239,11 +245,11 @@ sub get_contact_list {
     return;
 }
 
-=head2 connect
+#=head2 connect
 
-This is the most impotant method of the API. The method recieves the API keys and verification codes from the class and execute a request to the Eve Server.
+#This is the most impotant method of the API. The method recieves the API keys and verification codes from the class and execute a request to the Eve Server.
 
-=cut
+#=cut
 
 sub connect {
     my ($self, $keyID, $vCode, $path, $char)  = @_;
@@ -278,16 +284,13 @@ sub connect {
 
 =head1 AUTHOR
 
-Felipe da Veiga Leprevost, C<< <leprevost@can.org> >>
+Felipe da Veiga Leprevost, C<< <leprevost@cpan.org> >>
 
 =head1 BUGS
 
 Please report any bugs or feature requests to C<bug-myapp at rt.cpan.org>, or through
 the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MyApp>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
-
-
-
 
 =head1 SUPPORT
 
