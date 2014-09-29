@@ -8,6 +8,7 @@ build_requires:
   Test::More: '0'
   Time::Local: '0'
   XML::Simple: '0'
+  namespace::autoclean: '0'
 configure_requires:
   ExtUtils::MakeMaker: '0'
 dynamic_config: 1
@@ -23,4 +24,4 @@ no_index:
     - inc
 requires:
   perl: '5.006'
-version: '0.02'
+version: '0.03'
